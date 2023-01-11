@@ -24,7 +24,7 @@ void inventory::add_slot(int num) {
     }
 }
 
-void inventory::add_item(std::string item) {
+void inventory::add_item(item itemName) {
     slot *tmp;
     tmp = head;
     bool itemFilled = false;
@@ -33,8 +33,20 @@ void inventory::add_item(std::string item) {
             tmp = tmp->next;
         } else {
             tmp->occupied = true;
-            tmp->itemName = item;
+            tmp->itemName = itemName.id;
             itemFilled = true;
+        }
+    }
+}
+
+void inventory::removeItem(int slot) {
+    struct slot *tmp;
+    tmp = head;
+    while(tmp != nullptr) {
+        if (tmp->slotNum == slot) {
+            tmp->occupied = false;
+            tmp->itemName = "";
+            return;
         }
     }
 }
@@ -49,4 +61,13 @@ void inventory::printInventory() {
         tmp = tmp->next;
     }
     std::cout << std::endl;
+}
+
+item::item(std::string name) : id(name) {}
+
+void item::setMods(int speedP, int strengthP, int wisdomP, int defenseP) {
+    speed = speedP;
+    strength = strengthP;
+    wisdom = wisdomP;
+    defense = defenseP;
 }
