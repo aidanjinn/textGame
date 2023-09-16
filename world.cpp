@@ -52,34 +52,38 @@ void world::displayAdjNodes(int row, int column) {
         std::cout << "    " << map[row - 1][column].visited << " | " << std::endl;
         std::cout << map[row][column - 1].visited << " | ";
         std::cout << map[row][column].visited << " | " << std::endl;
+
     } else if (row == 0) {
         std::cout << map[row][column-1].visited << " | ";
         std::cout << map[row][column].visited << " | ";
         std::cout << map[row][column+1].visited << " | " << std::endl;
-        std::cout << "    " << map[row-1][column].visited << " | " << std::endl;
-    } else if (row == 9) {
         std::cout << "    " << map[row+1][column].visited << " | " << std::endl;
+    } else if (row == 9) {
+        std::cout << "    " << map[row-1][column].visited << " | " << std::endl;
         std::cout << map[row][column-1].visited << " | ";
         std::cout << map[row][column].visited << " | ";
         std::cout << map[row][column+1].visited << " | " << std::endl;
         //bottom and top row done now left and right sides
+
+
     } else if (column == 0) {
         std::cout << map[row+1][column].visited << " | " << std::endl;
         std::cout << map[row][column].visited << " | ";
         std::cout << map[row][column+1].visited << " | " << std::endl;
         std::cout << map[row-1][column].visited << " | " << std::endl;
     } else if (column == 9) {
-        std::cout << "    " << map[row+1][column].visited << " | " << std::endl;
+        std::cout << "    " << map[row-1][column].visited << " | " << std::endl;
         std::cout << map[row][column-1].visited << " | ";
         std::cout << map[row][column].visited << " | " << std::endl;
-        std::cout << "    " << map[row-1][column].visited << " | " << std::endl;
-        //left and right columns done and now we do every other node inside map borders
-    } else {
         std::cout << "    " << map[row+1][column].visited << " | " << std::endl;
+        //left and right columns done and now we do every other node inside map borders
+
+    } else {
+        std::cout << "    " << map[row-1][column].visited << " | " << std::endl;
         std::cout << map[row][column-1].visited << " | ";
         std::cout << map[row][column].visited << " | ";
         std::cout << map[row][column+1].visited << " | " << std::endl;
-        std::cout << "    " << map[row-1][column].visited << " | "  << std::endl;
+        std::cout << "    " << map[row+1][column].visited << " | "  << std::endl;
     }
 }
 

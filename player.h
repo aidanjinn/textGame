@@ -22,13 +22,17 @@ private:
 public:
     player(std::string nameP, int strengthP, int speedP, int wisdomP);
     void displayStats();
+
     //setting class; currently have 3 classes warrior, mage, thief; match array of classes (0-2)
     // in that order
     void setClass(int classNumber);
+
     //adds player's class bonus to stats
     void classBonus(int classNumber);
+
     //calculates player defense/health stats based off defense, strength, speed
     void defenseHealthCalc();
+
     //health manipulation
     void takeDamage(int damageAmount);
     void regainHealth(int gainAmount);

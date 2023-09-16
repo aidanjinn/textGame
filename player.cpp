@@ -34,6 +34,7 @@ void player::classBonus(int classNumber) {
         speed = speed + 3;
     }
 }
+
 //have current maximum hearts be capped at 100;
 //starting amount is always 15;
 //have defense max amount be 20;
