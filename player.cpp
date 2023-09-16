@@ -58,4 +58,12 @@ void player::regainHealth(int gainAmount) {
     health += gainAmount;
 }
 
+void player::gainExp(int exp) {
+    exp += exp;
+}
+
+int player::returnHealth() {
+    return health;
+}
+
 

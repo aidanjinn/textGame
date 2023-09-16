@@ -5,10 +5,11 @@
 #include "world.h"
 #include  <string>
 #include <vector>
-int main() {
+#include <map>
+#include <stdlib.h>
 
-    //Map Traversal Script
-    world map;
+
+void  mapMovement(world map) {
     int pos[] = {0,0};
     bool cont = true;
     while (cont) {
@@ -53,7 +54,81 @@ int main() {
             map.displayAdjNodes(pos[0],pos[1]);
         }
     }
-    //Map Traversal Script End
+}
+
+
+
+void combat(player character, player opponent) {
+    //options:
+    //strike
+    //block
+    //bash
+
+
+    //run
+    std::map<std::string, int> options;
+    options["strike"] = 1;
+    options["block"] = 2;
+    options["run"] = 3;
+
+    while (true) {
+
+        int oppoOption = std::rand() % 2 + 1;
+
+        std::string input;
+        if (std::cin >> input) {
+
+
+            switch (options[input]) {
+                case (1):
+
+                    if (oppoOption == 1) {
+                        std::cout << "You were blocked\n";
+                    } else if (oppoOption == 2) {
+                        std::cout << "You were hit as well\n";
+                        character.takeDamage(1);
+                    }
+
+                    break;
+                case(2):
+
+                    if (oppoOption == 1) {
+                        std::cout << "Strike Blocked\n";
+                    } else {
+                        std::cout << "Your Opponent Blocked as well\n";
+                    }
+
+                    break;
+
+                case(3):
+                    std::cout << "you ran away\n";
+                    return;
+                default:
+                    std::cout << "not Valid\n";
+            }
+
+
+            if (character.returnHealth() < 0) {
+                std::cout << "character has died\n";
+                return;
+            } else if (opponent.returnHealth() < 0) {
+                std:: cout << "opponent has died\n";
+                character.gainExp(1);
+                return;
+            }
+        }
+    }
+
+}
+
+
+int main() {
+    //world map;
+    //mapMovement(map);
+
+    //player man("man",1,1,1);
+    //combat(man,man);
+
 
 
 

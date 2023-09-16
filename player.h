@@ -17,6 +17,7 @@ private:
     std::string name;
     std::string classType;
     std::string classes[3] = {"warrior","mage", "thief"};
+    int exp;
 
 
 public:
@@ -36,5 +37,9 @@ public:
     //health manipulation
     void takeDamage(int damageAmount);
     void regainHealth(int gainAmount);
+
+    void gainExp(int exp);
+
+    int returnHealth();
 
 };
